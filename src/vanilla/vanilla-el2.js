@@ -1,17 +1,11 @@
-import { VanillaElement } from "./vanilla-element.js";
-import { html } from "lit-html";
-import "../bench-el.js";
+import { VanillaElement } from './vanilla-element.js';
+import { html } from 'lit-html';
+import '../bench-el.js';
 class VanillaEl2 extends VanillaElement {
   static get properties() {
     return {
-      name: { type: "string" },
+      name: { type: 'string' },
     };
-  }
-
-  connectedCallback() {
-    this.name = "stan";
-
-    document.dispatchEvent(new CustomEvent("is-done"));
   }
 
   render() {
@@ -19,4 +13,4 @@ class VanillaEl2 extends VanillaElement {
   }
 }
 
-customElements.define("vanilla-el2", VanillaEl2);
+customElements.define('vanilla-el2', VanillaEl2);

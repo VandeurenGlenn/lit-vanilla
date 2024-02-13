@@ -1,5 +1,5 @@
 customElements.define(
-  "bench-el",
+  'bench-el',
   class extends HTMLElement {
     constructor() {
       super();

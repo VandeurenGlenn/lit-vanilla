@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "ESNext",
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
+    "types": ["lit"]
+  },
+  "include": ["src/**/*.ts"]
+}

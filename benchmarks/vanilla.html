@@ -6,20 +6,21 @@
     <title>Document</title>
   </head>
   <body>
-    <my-el></my-el>
     <script type="module">
-      import { start, stop } from "/bench.js";
+      import { start, stop } from '/bench.js';
 
       start();
-      await import("./../exports/vanilla.js");
+      await import('./../exports/vanilla.js');
       const append = () => {
-        document.body.appendChild(document.createElement("my-el"));
+        document.body.appendChild(document.createElement('my-el'));
       };
       let i = 0;
-      document.addEventListener("is-done", () => {
-        i++;
-        if (i < 10) append();
-        if (i === 10) stop();
+      document.addEventListener('is-done', () => {
+        setTimeout(() => {
+          i++;
+          if (i < 10) append();
+          if (i === 10) stop();
+        }, 10);
       });
       append();
     </script>

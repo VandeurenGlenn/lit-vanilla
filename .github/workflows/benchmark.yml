@@ -1,0 +1,23 @@
+name: tachometer
+
+on: [oush]
+
+jobs:
+  pr_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Setup repo to run benchmarks
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: npm ci
+
+      # Run benchmarks
+      - name: Run tachometer and generate results file
+        run: npm run benchmarks
+
+      # Read results and post comment
+      - name: Report Tachometer Result
+        uses: andrewiggins/tachometer-reporter-action@v2
+        with:
+          path: results.json
