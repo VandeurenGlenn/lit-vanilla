@@ -16,11 +16,9 @@
       };
       let i = 0;
       document.addEventListener('is-done', () => {
-        setTimeout(() => {
-          i++;
-          if (i < 10) append();
-          if (i === 10) stop();
-        }, 10);
+        i++;
+        if (i < 20) append();
+        if (i === 20) stop();
       });
       append();
     </script>

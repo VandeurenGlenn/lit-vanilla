@@ -1,16 +1,29 @@
 name: tachometer
 
-on: [oush]
+on:
+  push:
+  workflow_dispatch:
+    # allows triggering from the github UI
 
 jobs:
-  pr_test:
+  benchmark:
     runs-on: ubuntu-latest
 
     steps:
       # Setup repo to run benchmarks
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: npm ci
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 21
+
+        env:
+          # Force installed chromedriver version to match the available chrome
+          # version regardless of package-lock
+          # https://github.com/giggio/node-chromedriver?tab=readme-ov-file#detect-chromedriver-version
+          DETECT_CHROMEDRIVER_VERSION: true
+      - run: npm i
+      - run: npm i --devDependencies
+      - run: npm run build
 
       # Run benchmarks
       - name: Run tachometer and generate results file

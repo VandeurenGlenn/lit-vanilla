@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "rollup -c",
-    "benchmarks": "tachometer benchmarks/lit.html benchmarks/vanilla.html benchmarks/lite.html --sample-size 100 --auto-sample-conditions=0%,10% --json-file results.json",
+    "benchmarks": "tachometer benchmarks/lit.html benchmarks/vanilla.html benchmarks/lite.html --browser=chrome-headless --json-file results.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
